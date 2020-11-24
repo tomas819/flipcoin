@@ -10,4 +10,4 @@ Smart contract features:
 - random numbers using an oracle
 - possibility to withdraw winnings
 
-![flipcoin](/flipcoin_dapp_1.PNG)
+<img src="https://github.com/tomas819/flipcoin/blob/main/flipcoin_dapp_1.PNG" align="left" height="700" width="360" >
