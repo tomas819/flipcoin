@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>flipcoin dapp</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./web3.min.js"></script>
+    <script type="text/javascript" src="./abi.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+
+      <div class="container">
+        <h1 class="display-4 text-success">flipcoin dapp</h1>
+        <hr />
+        <strong>account: </strong><span id="account_address"></span>
+        <br />
+        <strong>balance: </strong><span id="account_balance"></span>
+        <hr />
+
+        <div class="alert alert-danger" role="alert" id="alert_message">
+          <strong id="alert_message_text"></strong>
+        </div>
+        <hr />
+
+
+        <div class="row">
+          <div class="col-6">
+            <strong class="text-secondary">current flipcoin balance: </strong>
+          </div>
+          <div class="col-5">
+            <span id="contract_balance">0 ETH</span>
+          </div>
+        </div>
+
+        <hr />
+
+        <h4 class="text-info">your score</h4>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+              <strong>winnings: </strong>
+            </div>
+            <div class="col-8">
+              <span id="coin_balance">0 ETH</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+              <strong># of wins: </strong>
+            </div>
+            <div class="col-8">
+              <span id="coin_wins">0</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+              <strong># of losses: </strong>
+            </div>
+            <div class="col-8">
+              <span id="coin_losses">0</span>
+            </div>
+          </div>
+
+          <hr />
+
+          <h4 class="text-info">your last play</h4>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3">
+                <strong>bet: </strong>
+              </div>
+              <div class="col-8">
+                <strong id="coin_last_bet" class="text-primary">-</strong>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3">
+                <strong>coin side: </strong>
+              </div>
+              <div class="col-8">
+                <strong id="coin_last_side" class="text-primary">-</strong>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-1"></div>
+              <div class="col-3">
+                <strong>last result: </strong>
+              </div>
+              <div class="col-8">
+                <strong id="coin_last_result" class="text-primary">-</strong>
+              </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <div class="container">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><strong>your bet: </strong></span>
+        </div>
+        <input type="text" class="form-control" id="coin_bet">
+        <div class="input-group-append">
+          <span class="input-group-text">ETH</span>
+        </div>
+      </div>
+
+      <div class="nav justify-content-center">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="coin_head" value="head" checked>
+          <label class="form-check-label" for="inlineRadio1">HEAD </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="coin_tail" value="tail">
+          <label class="form-check-label" for="inlineRadio2">TAIL</label>
+        </div>
+      </div>
+
+      <hr />
+      <div class="nav justify-content-center">
+        <button type="button" id="coin_flip" class="btn btn-danger btn-lg btn-block"> flip! (pseudo-random)</button>
+      </div>
+      <hr />
+      <div class="nav justify-content-center">
+        <button type="button" id="coin_flip2" class="btn btn-danger btn-lg btn-block"> flip! (oracle-random)</button>
+      </div>
+      <hr />
+      <button type="button" id="coin_withdraw" class="btn btn-info"> withdraw winnings </button>
+      <hr />
+    </div>
+
+
+  </body>
+</html>
