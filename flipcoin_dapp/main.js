@@ -7,7 +7,7 @@ $(document).ready(async function() {
   window.ethereum.enable().then(function(accounts) {
     contractAddress = "0x980d07972628BB60c98f014A8F040e8Dfed09F3d";
     contractInstance = new web3.eth.Contract(abi, contractAddress, {from: accounts[0]});
-    console.log(contractInstance);
+    //console.log(contractInstance);
   }).then(async function() {
     acc = await window.ethereum.request({method: "eth_requestAccounts",});
 
@@ -208,11 +208,12 @@ function flipcoinPlay2() {
     contractInstance.events.testCallback({fromBlock: 'latest'}, function(error, event) {
       setAlertMessage("e", event.returnValues.test);
     });
+
     contractInstance.events.eventPlayResult({fromBlock: 'latest'}, function(error, event) {
-      if ((contractInstance.events.eventPlayResult.returnValues.playResult == true) && (contractInstance.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
+      if ((event.returnValues.playResult == true) && (event.returnValues.playAddress == contractInstance.options.from)) {
         setAlertMessage("i", "YOU WIN!");
       }
-      else if ((contractInstance.events.eventPlayResult.returnValues.playResult == false) && (contractInstance.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
+      else if ((event.returnValues.playResult == false) && (event.returnValues.playAddress == contractInstance.options.from)) {
         setAlertMessage("i", "YOU LOSE!");
       }
       updateBalancesAndScore();
