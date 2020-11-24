@@ -86,6 +86,11 @@ function updateLastPlay(coin_player) {
       $("#coin_last_result").text("waiting...");
     }
   }
+  else {
+    $("#coin_last_bet").text("-");
+    $("#coin_last_side").text("-");
+    $("#coin_last_result").text("-");
+  }
 }
 
 // alert message appears on the top;
@@ -204,10 +209,10 @@ function flipcoinPlay2() {
       setAlertMessage("e", event.returnValues.test);
     });
     contractInstance.events.eventPlayResult({fromBlock: 'latest'}, function(error, event) {
-      if ((receipt.events.eventPlayResult.returnValues.playResult == true) && (receipt.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
+      if ((contractInstance.events.eventPlayResult.returnValues.playResult == true) && (contractInstance.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
         setAlertMessage("i", "YOU WIN!");
       }
-      else if ((receipt.events.eventPlayResult.returnValues.playResult == false) && (receipt.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
+      else if ((contractInstance.events.eventPlayResult.returnValues.playResult == false) && (contractInstance.events.eventPlayResult.returnValues.playAddress == contractInstance.options.from)) {
         setAlertMessage("i", "YOU LOSE!");
       }
       updateBalancesAndScore();
