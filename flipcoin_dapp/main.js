@@ -5,7 +5,7 @@ var playerBalance;
 
 $(document).ready(async function() {
   window.ethereum.enable().then(function(accounts) {
-    contractAddress = "0x980d07972628BB60c98f014A8F040e8Dfed09F3d";
+    contractAddress = "0x023616B010559AFc6b16f95b86E996D4fd6bE2fb";
     contractInstance = new web3.eth.Contract(abi, contractAddress, {from: accounts[0]});
     //console.log(contractInstance);
   }).then(async function() {
