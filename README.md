@@ -1,5 +1,4 @@
-# flipcoin
-flipcoin dapp
+# flipcoin dapp
 
 Demonstration of a decentralized application on the ethereum blockchain.   
 
